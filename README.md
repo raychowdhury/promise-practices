@@ -1,4 +1,4 @@
-avaScript Promise & Async Await Practice
+JavaScript Promise & Async Await Practice
 This project demonstrates various JavaScript examples involving Promises, async/await, and handling asynchronous tasks such as:
 
 Simulating car orders and product processing.
@@ -10,4 +10,3 @@ Promises: Handling asynchronous operations with then() and catch().
 Async/Await: Using modern JavaScript syntax for asynchronous functions.
 API Fetching: Example of fetching data from an API with proper error handling.
 Feel free to explore, modify, and run the code for learning or practice!
-

@@ -52,8 +52,8 @@
 //         }
 
 //         },2000)
-        
-//     }) 
+
+//     })
 // }
 
 // processOrder(availableProducts)
@@ -64,32 +64,70 @@
 //     console.error("Error processing order:", error.message)
 // })
 
-function uploadFile(fileSize) {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            if (fileSize <= 5) {  // Check if the file size is less than or equal to 5 MB
-                resolve("Upload successfully done.");
-            } else {
-                reject(new Error("File size is too large"));
-            }
-        }, 3000); // Simulate a delay of 3 seconds
-    });
+// function uploadFile(fileSize) {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             if (fileSize <= 5) {  // Check if the file size is less than or equal to 5 MB
+//                 resolve("Upload successfully done.");
+//             } else {
+//                 reject(new Error("File size is too large"));
+//             }
+//         }, 3000); // Simulate a delay of 3 seconds
+//     });
+// }
+
+// // Example calls to the function with different file sizes
+// uploadFile(8)  // Change this number to test different scenarios
+//     .then((message) => {
+//         console.log(message);
+//     })
+//     .catch((error) => {
+//         console.error("Error uploading file:", error.message);
+//     });
+
+// // You can also test with a size greater than 5
+// uploadFile(6)
+//     .then((message) => {
+//         console.log(message);
+//     })
+//     .catch((error) => {
+//         console.error("Error uploading file:", error.message);
+//     });
+
+// practing fetch
+
+// fetch("https://pokeapi.co/api/v2/pokemon/pikachu")
+//     .then(response => response.json())
+//     .then(data =>console.log(data.name))
+//     .catch(error => console.error(error))
+
+// async & await
+
+//pokemon api
+
+
+fetechData();
+async function fetechData() {
+  try {
+
+    const pokemonName = document.getElementById("pokemonName").value.toLowerCase();
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
+    if(!response.ok){
+        throw new Error("Network response was not ok");
+    } 
+    const data = await response.json();
+    const pokemonSprite = data.sprites.front_default;
+    const imgElement = document.getElementById("pokemonSprite");
+
+    imgElement.src = pokemonSprite;
+    imgElement.style.display = "block"
+
+    console.log(data.name);
+    
+
+  } catch (error) {
+    console.error(error);
+  }
 }
 
-// Example calls to the function with different file sizes
-uploadFile(8)  // Change this number to test different scenarios
-    .then((message) => {
-        console.log(message);
-    })
-    .catch((error) => {
-        console.error("Error uploading file:", error.message);
-    });
 
-// You can also test with a size greater than 5
-uploadFile(6)
-    .then((message) => {
-        console.log(message);
-    })
-    .catch((error) => {
-        console.error("Error uploading file:", error.message);
-    });
